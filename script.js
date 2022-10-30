@@ -41,7 +41,6 @@ pizzaJson.map((item, index) => {
 		}, 200)
 	});
 
-
 	c('.pizza-area').append(pizzaItem); //colagem da clonagem na área de destino
 
 });
@@ -55,7 +54,29 @@ const closeModal = () => {
 };
 
 //aplicação em elementos da função de fechamento:
-
 cs('.pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton').forEach((item) =>{
 	item.addEventListener('click', closeModal);
 });
+
+c('.pizzaInfo--qtmenos').addEventListener('click', () => {
+	if (modalQt > 1) {
+		modalQt--;
+	c('.pizzaInfo--qt').innerHTML = modalQt;
+	}
+})
+
+c('.pizzaInfo--qtmais').addEventListener('click', () => {
+	modalQt++;
+	c('.pizzaInfo--qt').innerHTML = modalQt;
+
+});
+
+cs('.pizzaInfo--size').forEach((size, sizeIndex)=> {
+		size.addEventListener('click', (e)=>{
+		c('.pizzaInfo--size.selected').classList.remove('selected');
+		size.classList.add('selected');
+	})
+});
+
+
+
