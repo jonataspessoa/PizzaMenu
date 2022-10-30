@@ -17,7 +17,7 @@ pizzaJson.map((item, index) => {
 
 		//Preenchimento de modal usando o index(data-key) da pizza clicada:
 		let key = e.target.closest('.pizza-item').getAttribute('data-key');
-		modalQt = 1; //Padronizando abertura de modal sempre com quantidade 1;
+		modalQt = 1; //Abertura de modal sempre com quantidade 1;
 
 		c('.pizzaBig img').src = pizzaJson[key].img;
 		c('.pizzaInfo h1').innerHTML = pizzaJson[key].name;
@@ -32,15 +32,30 @@ pizzaJson.map((item, index) => {
 			size.querySelector('span').innerHTML = pizzaJson[key].sizes[key];
 		});
 
-		c('.pizzaInfo--qt').innerHTML = modalQt;
+		c('.pizzaInfo--qt').innerHTML = modalQt;// Preenchimento do modalQt padronizado
 
-		c('.pizzaWindowArea').style.opacity = 0;
+		c('.pizzaWindowArea').style.opacity = 0; //Suavidade na abertura do modal
 		c('.pizzaWindowArea').style.display = 'flex';
 		setTimeout(()=> {
 			c('.pizzaWindowArea').style.opacity = 1;
 		}, 200)
 	});
 
+
 	c('.pizza-area').append(pizzaItem); //colagem da clonagem na área de destino
 
-})
+});
+
+//Criação da função de fechamento
+const closeModal = () => {
+	c('.pizzaWindowArea').style.opacity = 0;
+	setTimeout(()=>{
+		c('.pizzaWindowArea').style.display = 'none';
+	}, 500);
+};
+
+//aplicação em elementos da função de fechamento:
+
+cs('.pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton').forEach((item) =>{
+	item.addEventListener('click', closeModal);
+});
