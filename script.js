@@ -166,8 +166,7 @@ function updateCart() {
 			updateCart();
 		})
 		c('.cart').append(cartItem);
-	}
-
+	};
 	desconto += subtotal * 0.1;
 	total += subtotal - desconto;
 
@@ -185,9 +184,7 @@ function updateCart() {
 		c('aside').style.left = '100vw';
 		c('.pizza-area').innerHTML = '<bold>PEDIDO FINALIZADO COM SUCESSO!</bold>';
 		document.body.style.background = 'green';
-
-	})
-
+	});
 }
 
 
