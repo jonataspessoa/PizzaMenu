@@ -378,8 +378,8 @@ h1 {
         align-items: flex-start;
     }
 
-    .pizzaWindowBody {
-        width:100vw;
+    .pizzaWindowBody { 
+        width:100vw;   
         display:block;
         padding:20px;
         border-radius:0;
